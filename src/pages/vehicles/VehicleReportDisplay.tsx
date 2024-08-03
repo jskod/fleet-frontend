@@ -24,11 +24,11 @@ const VehicleReportDisplay = ({
   alertCount,
 }: TrackingReport) => {
   return (
-    <Box maxW="3xl">
-      <Grid templateColumns={{ base: "1fr", md: "1fr 1fr" }} gap={6}>
+    <Box>
+      <Grid templateColumns={{ md: "1fr 1fr 1fr 1fr" }} gap={4}>
         <Card>
-          <CardHeader>
-            <Heading as="h4" size="md">
+          <CardHeader pb={0}>
+            <Heading as="h4" size="xs">
               General Information
             </Heading>
           </CardHeader>
@@ -37,21 +37,27 @@ const VehicleReportDisplay = ({
               <HStack>
                 <Stat>
                   <StatLabel>Hours Operated</StatLabel>
-                  <StatNumber>{hoursOperated.toFixed(2)} hrs</StatNumber>
+                  <StatNumber fontSize={"lg"}>
+                    {hoursOperated.toFixed(2)} hrs
+                  </StatNumber>
                 </Stat>
                 <Stat>
                   <StatLabel>Total Distance</StatLabel>
-                  <StatNumber>{totalDistance.toFixed(2)} km</StatNumber>
+                  <StatNumber fontSize={"lg"}>
+                    {totalDistance.toFixed(2)} km
+                  </StatNumber>
                 </Stat>
               </HStack>
               <HStack>
                 <Stat>
                   <StatLabel>Average Speed</StatLabel>
-                  <StatNumber>{averageSpeed.toFixed(2)} km/h</StatNumber>
+                  <StatNumber fontSize={"lg"}>
+                    {averageSpeed.toFixed(2)} km/h
+                  </StatNumber>
                 </Stat>
                 <Stat>
                   <StatLabel>Max Speed</StatLabel>
-                  <StatNumber>{maxSpeed} km/h</StatNumber>
+                  <StatNumber fontSize={"lg"}>{maxSpeed} km/h</StatNumber>
                 </Stat>
               </HStack>
             </Stack>
@@ -59,8 +65,8 @@ const VehicleReportDisplay = ({
         </Card>
 
         <Card>
-          <CardHeader>
-            <Heading as="h4" size="md">
+          <CardHeader pb={0}>
+            <Heading as="h4" size="xs">
               Tire Pressure
             </Heading>
           </CardHeader>
@@ -69,13 +75,13 @@ const VehicleReportDisplay = ({
               <HStack>
                 <Stat>
                   <StatLabel>Front Left</StatLabel>
-                  <StatNumber>
+                  <StatNumber fontSize={"lg"}>
                     {averageTirePressure.frontLeft.toFixed(2)} PSI
                   </StatNumber>
                 </Stat>
                 <Stat>
                   <StatLabel>Front Right</StatLabel>
-                  <StatNumber>
+                  <StatNumber fontSize={"lg"}>
                     {averageTirePressure.frontRight.toFixed(2)} PSI
                   </StatNumber>
                 </Stat>
@@ -83,13 +89,13 @@ const VehicleReportDisplay = ({
               <HStack>
                 <Stat>
                   <StatLabel>Rear Left</StatLabel>
-                  <StatNumber>
+                  <StatNumber fontSize={"lg"}>
                     {averageTirePressure.rearLeft.toFixed(2)} PSI
                   </StatNumber>
                 </Stat>
                 <Stat>
                   <StatLabel>Rear Right</StatLabel>
-                  <StatNumber>
+                  <StatNumber fontSize={"lg"}>
                     {averageTirePressure.rearRight.toFixed(2)} PSI
                   </StatNumber>
                 </Stat>
@@ -99,8 +105,8 @@ const VehicleReportDisplay = ({
         </Card>
 
         <Card>
-          <CardHeader>
-            <Heading as="h4" size="md">
+          <CardHeader pb={0}>
+            <Heading as="h4" size="xs">
               Battery Information
             </Heading>
           </CardHeader>
@@ -108,26 +114,30 @@ const VehicleReportDisplay = ({
             <Stack spacing={3}>
               <Stat>
                 <StatLabel>Average Battery Voltage</StatLabel>
-                <StatNumber>{averageBatteryVoltage.toFixed(2)} V</StatNumber>
+                <StatNumber fontSize={"lg"}>
+                  {averageBatteryVoltage.toFixed(2)} V
+                </StatNumber>
               </Stat>
               <Stat>
                 <StatLabel>Min Battery Voltage</StatLabel>
-                <StatNumber>{minBatteryVoltage.toFixed(2)} V</StatNumber>
+                <StatNumber fontSize={"lg"}>
+                  {minBatteryVoltage.toFixed(2)} V
+                </StatNumber>
               </Stat>
             </Stack>
           </CardBody>
         </Card>
 
         <Card>
-          <CardHeader>
-            <Heading as="h4" size="md">
+          <CardHeader pb={0}>
+            <Heading as="h4" size="xs">
               Alerts
             </Heading>
           </CardHeader>
           <CardBody>
             <Stat>
               <StatLabel>Alert Count</StatLabel>
-              <StatNumber>{alertCount}</StatNumber>
+              <StatNumber fontSize={"lg"}>{alertCount}</StatNumber>
             </Stat>
           </CardBody>
         </Card>
