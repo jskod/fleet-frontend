@@ -8,6 +8,7 @@ import {
   Input,
   Stack,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import { z } from "zod";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -50,6 +51,7 @@ type CreateMaintenanceLogFormData = z.infer<typeof schema>;
 
 export default function CreateMaintenanceLog() {
   const navigate = useNavigate();
+  const toast = useToast();
   const { vehicleId } = useParams<{ vehicleId: string }>();
 
   const {
@@ -64,9 +66,23 @@ export default function CreateMaintenanceLog() {
 
   const { mutate: createMaintenanceLog, isPending } = useCreateMaintenanceLog({
     onSuccess: () => {
+      toast({
+        title: "Maintenance Log Added",
+        description: "New maintenance log has been added.",
+        isClosable: true,
+        status: "success",
+        position: "top-right",
+      });
       navigate("/", { replace: true });
     },
     onError: (error) => {
+      toast({
+        title: "Maintenance Log Not Added",
+        description: "Something went wrong while adding new maintenance log.",
+        isClosable: true,
+        status: "error",
+        position: "top-right",
+      });
       setError(parseAxiosError(error));
     },
   });

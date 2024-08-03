@@ -9,6 +9,7 @@ import {
   Select,
   Stack,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import { z } from "zod";
 import { SubmitHandler, useForm } from "react-hook-form";
@@ -30,6 +31,7 @@ type RegisterVehicleFormData = z.infer<typeof schema>;
 
 export default function RegisterVehicle() {
   const navigate = useNavigate();
+  const toast = useToast();
   const {
     handleSubmit,
     register,
@@ -42,9 +44,23 @@ export default function RegisterVehicle() {
 
   const { mutate: registerVehicle, isPending } = useRegisterVehicle({
     onSuccess: () => {
+      toast({
+        title: "Vehicle Registered",
+        description: "New vehicle has been registered.",
+        isClosable: true,
+        status: "success",
+        position: "top-right",
+      });
       navigate("/", { replace: true });
     },
     onError: (error) => {
+      toast({
+        title: "Vehicle Not Registered",
+        description: "Something went wrong while registering new vehicle.",
+        isClosable: true,
+        status: "error",
+        position: "top-right",
+      });
       setError(parseAxiosError(error));
     },
   });
