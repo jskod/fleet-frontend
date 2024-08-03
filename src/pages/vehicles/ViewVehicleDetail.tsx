@@ -71,7 +71,7 @@ export default function ViewVehicleDetail(): React.ReactElement {
             </NavLink>
           </Box>
         </Flex>
-        {logs?.data ? (
+        {logs?.data?.length ? (
           <MaintenanceLogsList logs={logs?.data} />
         ) : isLoadingLogs ? (
           <Text>Loading Logs</Text>
