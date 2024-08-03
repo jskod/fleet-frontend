@@ -49,7 +49,7 @@ export function Layout() {
             p={2}
             fontWeight="normal"
           >
-            Tendered{" "}
+            Tenderd{" "}
             <Text
               as="span"
               bg="orange.400"
