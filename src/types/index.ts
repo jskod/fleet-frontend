@@ -16,3 +16,19 @@ export interface MaintenanceLog {
   performedBy: string;
   mileageAtService: number;
 }
+
+export interface TrackingReport {
+  hoursOperated: number;
+  totalDistance: number;
+  averageSpeed: number;
+  maxSpeed: number;
+  averageTirePressure: {
+    frontLeft: number;
+    frontRight: number;
+    rearLeft: number;
+    rearRight: number;
+  };
+  averageBatteryVoltage: number;
+  minBatteryVoltage: number;
+  alertCount: number;
+}

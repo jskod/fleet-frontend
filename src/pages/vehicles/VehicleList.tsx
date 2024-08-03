@@ -15,7 +15,7 @@ import {
 } from "@chakra-ui/react";
 import { EyeIcon, ScrollTextIcon } from "lucide-react";
 import { Vehicle } from "../../types";
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { routes } from "../../router.tsx";
 
 type VehicleListProps = {
@@ -23,8 +23,6 @@ type VehicleListProps = {
 };
 
 export default function VehicleList({ vehicles }: VehicleListProps) {
-  const navigate = useNavigate();
-
   return (
     <TableContainer>
       <Table size={"sm"}>
@@ -59,26 +57,32 @@ export default function VehicleList({ vehicles }: VehicleListProps) {
               <Td>
                 <HStack>
                   <Tooltip label={"View Information"}>
-                    <IconButton size={"xs"} aria-label={"View Information"}>
-                      <Icon as={EyeIcon} />
-                    </IconButton>
+                    <NavLink
+                      to={routes.ViewVehicleDetail.replace(
+                        ":vehicleId",
+                        vehicle._id,
+                      )}
+                    >
+                      <IconButton size={"xs"} aria-label={"View Information"}>
+                        <Icon as={EyeIcon} />
+                      </IconButton>
+                    </NavLink>
                   </Tooltip>
 
                   <Tooltip label={"Create Maintenance Log"}>
-                    <IconButton
-                      onClick={() => {
-                        navigate(
-                          routes.CreateMaintenanceLog.replace(
-                            ":vehicleId",
-                            vehicle._id,
-                          ),
-                        );
-                      }}
-                      size={"xs"}
-                      aria-label={"Create Maintenance Log"}
+                    <NavLink
+                      to={routes.CreateMaintenanceLog.replace(
+                        ":vehicleId",
+                        vehicle._id,
+                      )}
                     >
-                      <Icon as={ScrollTextIcon} />
-                    </IconButton>
+                      <IconButton
+                        size={"xs"}
+                        aria-label={"Create Maintenance Log"}
+                      >
+                        <Icon as={ScrollTextIcon} />
+                      </IconButton>
+                    </NavLink>
                   </Tooltip>
                 </HStack>
               </Td>
