@@ -37,5 +37,4 @@ export interface VehicleLocation {
   latitude: number;
   longitude: number;
   speed: number;
-  status: string;
 }

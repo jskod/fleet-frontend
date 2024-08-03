@@ -44,7 +44,6 @@ export default function VehicleTracker() {
           <Marker position={position}>
             <Popup>
               <Box>
-                <Text>Status: {data.data.status}</Text>
                 <Text>
                   Vehicle is here: {data.data.latitude.toFixed(4)},
                   {data.data.longitude.toFixed(4)}
