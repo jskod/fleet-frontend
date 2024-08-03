@@ -65,7 +65,12 @@ export function Layout() {
         <Box>
           <Stack>
             {MENU.map((menu) => (
-              <MenuLink to={menu.to} name={menu.name} icon={menu.icon} />
+              <MenuLink
+                key={menu.name}
+                to={menu.to}
+                name={menu.name}
+                icon={menu.icon}
+              />
             ))}
           </Stack>
         </Box>
