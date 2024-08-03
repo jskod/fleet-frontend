@@ -1,5 +1,6 @@
 import {
   Badge,
+  HStack,
   Icon,
   IconButton,
   Table,
@@ -9,16 +10,21 @@ import {
   Text,
   Th,
   Thead,
+  Tooltip,
   Tr,
 } from "@chakra-ui/react";
-import { EyeIcon } from "lucide-react";
+import { EyeIcon, ScrollTextIcon } from "lucide-react";
 import { Vehicle } from "../../types";
+import { useNavigate } from "react-router-dom";
+import { routes } from "../../router.tsx";
 
 type VehicleListProps = {
   vehicles: Vehicle[];
 };
 
 export default function VehicleList({ vehicles }: VehicleListProps) {
+  const navigate = useNavigate();
+
   return (
     <TableContainer>
       <Table size={"sm"}>
@@ -51,9 +57,30 @@ export default function VehicleList({ vehicles }: VehicleListProps) {
               </Td>
               <Td>{new Date(vehicle.createdAt).toDateString()}</Td>
               <Td>
-                <IconButton size={"xs"} aria-label={"Edit project"}>
-                  <Icon as={EyeIcon} />
-                </IconButton>
+                <HStack>
+                  <Tooltip label={"View Information"}>
+                    <IconButton size={"xs"} aria-label={"View Information"}>
+                      <Icon as={EyeIcon} />
+                    </IconButton>
+                  </Tooltip>
+
+                  <Tooltip label={"Create Maintenance Log"}>
+                    <IconButton
+                      onClick={() => {
+                        navigate(
+                          routes.CreateMaintenanceLog.replace(
+                            ":vehicleId",
+                            vehicle._id,
+                          ),
+                        );
+                      }}
+                      size={"xs"}
+                      aria-label={"Create Maintenance Log"}
+                    >
+                      <Icon as={ScrollTextIcon} />
+                    </IconButton>
+                  </Tooltip>
+                </HStack>
               </Td>
             </Tr>
           ))}

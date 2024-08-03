@@ -15,7 +15,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import PageTitle from "../../components/PageTitle.tsx";
 import { useRegisterVehicle } from "../../hooks/mutations/useRegisterVehicle.ts";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { parseAxiosError } from "../../utils/parseAxiosError.ts";
 
@@ -40,11 +40,7 @@ export default function RegisterVehicle() {
 
   const [error, setError] = useState("");
 
-  const {
-    mutate: registerVehicle,
-    data,
-    isPending,
-  } = useRegisterVehicle({
+  const { mutate: registerVehicle, isPending } = useRegisterVehicle({
     onSuccess: () => {
       navigate("/", { replace: true });
     },
@@ -56,10 +52,6 @@ export default function RegisterVehicle() {
   const onSubmit: SubmitHandler<RegisterVehicleFormData> = (data) => {
     registerVehicle(data);
   };
-
-  useEffect(() => {
-    console.log("the data", data);
-  }, [data, error]);
 
   return (
     <Box p={4}>
