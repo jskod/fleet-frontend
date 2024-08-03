@@ -13,7 +13,7 @@ import {
   Tooltip,
   Tr,
 } from "@chakra-ui/react";
-import { EyeIcon, ScrollTextIcon } from "lucide-react";
+import { EyeIcon, PinIcon, ScrollTextIcon } from "lucide-react";
 import { Vehicle } from "../../types";
 import { NavLink } from "react-router-dom";
 import { routes } from "../../router.tsx";
@@ -81,6 +81,19 @@ export default function VehicleList({ vehicles }: VehicleListProps) {
                         aria-label={"Create Maintenance Log"}
                       >
                         <Icon as={ScrollTextIcon} />
+                      </IconButton>
+                    </NavLink>
+                  </Tooltip>
+
+                  <Tooltip label={"Live Track Vehicle"}>
+                    <NavLink
+                      to={routes.VehicleLiveTracker.replace(
+                        ":vehicleId",
+                        vehicle._id,
+                      )}
+                    >
+                      <IconButton size={"xs"} aria-label={"Live Track Vehicle"}>
+                        <Icon as={PinIcon} />
                       </IconButton>
                     </NavLink>
                   </Tooltip>

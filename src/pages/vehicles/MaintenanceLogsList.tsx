@@ -20,7 +20,6 @@ const MaintenanceLogsList = ({ logs }: MaintenanceLogsListProps) => {
       <Table size={"sm"}>
         <Thead>
           <Tr>
-            <Th>Vehicle ID</Th>
             <Th>Description</Th>
             <Th>Date</Th>
             <Th>Cost ($)</Th>
@@ -31,7 +30,6 @@ const MaintenanceLogsList = ({ logs }: MaintenanceLogsListProps) => {
         <Tbody>
           {logs?.map((log) => (
             <Tr key={log._id}>
-              <Td>{log.vehicleId}</Td>
               <Td maxW={"md"}>
                 <Text>{log.description}</Text>
               </Td>

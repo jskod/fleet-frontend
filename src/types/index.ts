@@ -32,3 +32,10 @@ export interface TrackingReport {
   minBatteryVoltage: number;
   alertCount: number;
 }
+
+export interface VehicleLocation {
+  latitude: number;
+  longitude: number;
+  speed: number;
+  status: string;
+}

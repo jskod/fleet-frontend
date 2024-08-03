@@ -13,7 +13,9 @@ export default function Vehicles(): React.ReactElement {
 
   return (
     <Box p={4}>
-      <PageTitle mb={4}>Vehicles</PageTitle>
+      <PageTitle mb={4} hideBackButton>
+        Vehicles
+      </PageTitle>
 
       <Flex mb={4} justifyContent="flex-end">
         <NavLink to={routes.RegisterVehicle}>
