@@ -11,7 +11,7 @@ import {
   Thead,
   Tr,
 } from "@chakra-ui/react";
-import { EditIcon } from "lucide-react";
+import { EyeIcon } from "lucide-react";
 import { Vehicle } from "../../types";
 
 type VehicleListProps = {
@@ -52,7 +52,7 @@ export default function VehicleList({ vehicles }: VehicleListProps) {
               <Td>{new Date(vehicle.createdAt).toDateString()}</Td>
               <Td>
                 <IconButton size={"xs"} aria-label={"Edit project"}>
-                  <Icon as={EditIcon} />
+                  <Icon as={EyeIcon} />
                 </IconButton>
               </Td>
             </Tr>
